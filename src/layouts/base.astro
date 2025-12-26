@@ -76,7 +76,7 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
     <link rel="alternate" type="application/rss+xml" title={`${RSS_PREFIX}${channel?.title}`} href={RSS_URL} />
     <style is:inline>
       @view-transition {
-        navigation: auto;
+        navigation: auto; /* enabled */
       }
     </style>
     <SEO
@@ -88,6 +88,15 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
       }}
       {...seoParams}
     />
+
+    <!-- Monetag 广告脚本，按要求放在 head 中 -->
+    <script
+      src="https://quge5.com/88/tag.min.js"
+      data-zone="196250"
+      async
+      data-cfasync="false">
+    </script>
+
     <Fragment set:html={HEADER_INJECT} />
   </head>
 
@@ -148,22 +157,25 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
             </form>
             <div class="copyright-wrap">
               Powered by
-              <a href="https://github.com/miantiao-me/BroadcastChannel" target="_blank" rel="noopener">BroadcastChannel</a>
-              &
-              <a href="https://github.com/Planetable/SiteTemplateSepia" target="_blank" rel="noopener">Sepia</a>
+              <a
+                href="https://github.com/miantiao-me/BroadcastChannel"
+                title="BroadcastChannel"
+                target="_blank"
+                rel="noopener"
+              >
+                BroadcastChannel
+              </a> &
+              <a href="https://github.com/Planetable/SiteTemplateSepia" title="Sepia" target="_blank" rel="noopener">
+                Sepia
+              </a>
             </div>
           </slot>
         </div>
       </div>
     </div>
-
     <a href="#wrapper" id="back-to-top" aria-label="Back to top">
       <img {...backToTopIcon} alt="Back to Top" />
     </a>
-
-    <!-- ⭐⭐⭐ Monetag 广告脚本（Zone 196250） ⭐⭐⭐ -->
-    <script src="https://quge5.com/88/tag.min.js" data-zone="196250" async data-cfasync="false"></script>
-
     <Fragment set:html={FOOTER_INJECT} />
   </body>
 </html>
