@@ -89,6 +89,15 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
       {...seoParams}
     />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZBKY907JP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NZBKY907JP');
+    </script>
+
     <!-- Monetag 主脚本 -->
     <script
       src="https://quge5.com/88/tag.min.js"
